@@ -1,4 +1,4 @@
-<?php /* Template Name: Home */?>
+<?php /* Template Name: Home */ ?>
 
 <?php
 get_header();
@@ -44,62 +44,35 @@ get_header();
             the comfort of your homes.
         </p>
         <div class="cards row text-center g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <div class="h1 mb-3">
-                            <i class="fa fa-paw"></i>
+
+            <?php
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 4,
+                'facetwp' => true,
+            );
+            $query = new WP_Query($args);
+            ?>
+            <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <div class="h1 mb-3">
+                                    <i class="fa fa-paw"></i>
+                                </div>
+                                <h3 class="card-title mb-3"><?= get_the_title(); ?></h3>
+                                <p class="card-text">
+                                    <?= the_content(); ?> 
+                                </p>
+                                <a href="<?= get_the_permalink(); ?>" class="btn-lg">Read More</a>
+                            </div>
                         </div>
-                        <h3 class="card-title mb-3">Call Us In</h3>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, delectus velit? Quasi, enim. Sequi at, temporibus quis eum nemo vero!
-                        </p>
-                        <a href="services.php#call-us-in" class="btn-lg">Read More</a>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <div class="h1 mb-3">
-                            <i class="fa fa-paw"></i>
-                        </div>
-                        <h3 class="card-title mb-3">Bring Them In</h3>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic aliquam, iusto assumenda vitae voluptates quas consequatur excepturi alias laudantium soluta.
-                        </p>
-                        <a href="services.php#bring-them-in" class="btn-lg">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <div class="h1 mb-3">
-                            <i class="fa fa-paw"></i>
-                        </div>
-                        <h3 class="card-title mb-3">Fancy Pampering?</h3>
-                        <p class="card-text">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam, qui.
-                        </p>
-                        <a href="services.php#pampering" class="btn-lg">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <div class="h1 mb-3">
-                            <i class="fa fa-paw"></i>
-                        </div>
-                        <h3 class="card-title mb-3">Paw Lodgings</h3>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, delectus velit? Quasi, enim. Sequi at, temporibus quis eum nemo vero!
-                        </p>
-                        <a href="services.php#call-us-in" class="btn-lg">Read More</a>
-                    </div>
-                </div>
-            </div>
+
+                <?php endwhile; ?>
+            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
         </div>
     </div>
 </section>
