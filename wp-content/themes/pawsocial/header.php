@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light p-2 fixed-top">
         <div class="container">
-            <a href="index.php"><?php
+            <a href="/"><?php
             if(function_exists('the_custom_logo')){
                 the_custom_logo();
             }
