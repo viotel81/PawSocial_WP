@@ -1,5 +1,61 @@
 <?php
 
+function my_custom_post_entertainer() {
+    $labels = array(
+      'name'               => _x( 'People', 'entertainers' ),
+      'singular_name'      => _x( 'Person', 'entertainer' ),
+      'add_new'            => _x( 'Add New', 'entertainer' ),
+      'add_new_item'       => __( 'Add New Entertainer' ),
+      'edit_item'          => __( 'Edit Entertainer' ),
+      'new_item'           => __( 'New Entertainer' ),
+      'all_items'          => __( 'All Entertainers' ),
+      'view_item'          => __( 'View Entertainer' ),
+      'search_items'       => __( 'Search Entertainers' ),
+      'not_found'          => __( 'No entertainers found' ),
+      'not_found_in_trash' => __( 'No entertainers found in the Trash' ), 
+      'parent_item_colon'  => '’',
+      'menu_name'          => 'Entertainers'
+    );
+    $args = array(
+      'labels'        => $labels,
+      'description'   => 'About our entertainers and their skills',
+      'public'        => true,
+      'menu_position' => 5,
+      'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+      'has_archive'   => true,
+    );
+    register_post_type( 'entertainer', $args ); 
+  }
+add_action( 'init', 'my_custom_post_entertainer' );
+
+function my_custom_post_service() {
+    $labels = array(
+      'name'               => _x( 'Services', 'services' ),
+      'singular_name'      => _x( 'Service', 'services' ),
+      'add_new'            => _x( 'Add New', 'service' ),
+      'add_new_item'       => __( 'Add New Service' ),
+      'edit_item'          => __( 'Edit Service' ),
+      'new_item'           => __( 'New Service' ),
+      'all_items'          => __( 'All Services' ),
+      'view_item'          => __( 'View Service' ),
+      'search_items'       => __( 'Search Services' ),
+      'not_found'          => __( 'No services found' ),
+      'not_found_in_trash' => __( 'No services found in the Trash' ), 
+      'parent_item_colon'  => '’',
+      'menu_name'          => 'Services'
+    );
+    $args = array(
+      'labels'        => $labels,
+      'description'   => 'About our services',
+      'public'        => true,
+      'menu_position' => 2,
+      'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+      'has_archive'   => true,
+    );
+    register_post_type( 'service', $args ); 
+  }
+add_action( 'init', 'my_custom_post_service' );
+
 function pawsocial_theme_support(){
     add_theme_support('title_tag');
     add_theme_support('custom-logo');

@@ -44,17 +44,15 @@ get_header();
             the comfort of your homes.
         </p>
         <div class="cards row text-center g-4">
-
             <?php
             $args = array(
-                'post_type' => 'post',
+                'post_type' => 'service',
                 'posts_per_page' => 4,
                 'facetwp' => true,
             );
             $query = new WP_Query($args);
             ?>
             <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
-
                     <div class="col-md-6 col-lg-3">
                         <div class="card h-100">
                             <div class="card-body text-center">
@@ -63,13 +61,12 @@ get_header();
                                 </div>
                                 <h3 class="card-title mb-3"><?= get_the_title(); ?></h3>
                                 <p class="card-text">
-                                    <?= the_content(); ?> 
+                                    <?= the_content(); ?>
                                 </p>
                                 <a href="<?= get_the_permalink(); ?>" class="btn-lg">Read More</a>
                             </div>
                         </div>
                     </div>
-
                 <?php endwhile; ?>
             <?php endif; ?>
             <?php wp_reset_postdata(); ?>
@@ -82,85 +79,35 @@ get_header();
         <h2 class="text-center pb-4">What Our Paw Owners Say</h2>
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                    <div class="card px-4">
-                        <div class="card-body text-center">
-                            <div class="h1">
-                                <i class="fa fa-paw fa-x"></i>
+                <div class="carousel-item active">
+                    <?php
+                    $args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 1,
+                        'facetwp' => true,
+                    );
+                    $query = new WP_Query($args);
+                    ?>
+                    <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+                            <div class="card px-4">
+                                <div class="card-body text-center">
+                                    <div class="h1">
+                                        <i class="fa fa-paw fa-x"></i>
+                                    </div>
+                                    <h4 class="card-title"><?php get_the_title(); ?></h4>
+                                    <p class="card-text"></p>
+                                    <?php
+                                    the_content();
+                                    ?>
+                                    </p>
+                                    <div class="author">
+                                        <img class="rounded-circle" src="<?php the_post_thumbnail_url(); ?>">
+                                    </div>
+                                </div>
                             </div>
-                            <h4 class="card-title pt-2">My saviours during long business trips!</h4>
-                            <p class="card-text"></p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam voluptatum impedit repellendus ex quo et, obcaecati vero magnam iure unde architecto quos id ut fuga eos repellat minima magni laboriosam!
-                            </p>
-                            <div class="author">
-                                <img src="https://randomuser.me/api/portraits/men/50.jpg" class="rounded-circle m-2" alt="" />
-                            </div>
-                            <div class="card-author">
-                                <strong class="">Patrick Black,</strong>
-                                <small class="">Contractor</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="20000">
-                    <div class="card px-4">
-                        <div class="card-body text-center">
-                            <div class="h1">
-                                <i class="fa fa-paw fa-x"></i>
-                            </div>
-                            <h4 class="card-title pt-2">Best friends of Fluffy!</h4>
-                            <p class="card-text"></p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam voluptatum impedit repellendus ex quo et, obcaecati vero magnam iure unde architecto quos id ut fuga eos repellat minima magni laboriosam!
-                            </p>
-                            <div class="author">
-                                <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle m-2" alt="" />
-                            </div>
-                            <div class="card-author">
-                                <strong class="">Jenny Stark,</strong>
-                                <small class="">CEO</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="30000">
-                    <div class="card px-4">
-                        <div class="card-body text-center">
-                            <div class="h1">
-                                <i class="fa fa-paw fa-x"></i>
-                            </div>
-                            <h3 class="card-title pt-2">Hopelessly in Love!</h3>
-                            <p class="card-text"></p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam voluptatum impedit repellendus ex quo et, obcaecati vero magnam iure unde architecto quos id ut fuga eos repellat minima magni laboriosam!
-                            </p>
-                            <div class="author">
-                                <img src="https://randomuser.me/api/portraits/men/25.jpg" class="rounded-circle m-2" alt="" />
-                            </div>
-                            <div class="card-author">
-                                <strong class="">John Doe,</strong>
-                                <small class="">IT Project Manager</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card px-4">
-                        <div class="card-body text-center">
-                            <div class="h1">
-                                <i class="fa fa-paw fa-x"></i>
-                            </div>
-                            <h4 class="card-title pt-2">Can't live without these guys!</h4>
-                            <p class="card-text"></p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint sunt, asperiores amet laboriosam facilis dolorem laborum neque officiis! Placeat, esse!
-                            </p>
-                            <div class="author">
-                                <img src="https://randomuser.me/api/portraits/women/55.jpg" class="rounded-circle m-2" alt="" />
-                            </div>
-                            <div class="card-author">
-                                <strong class="">Kelly Strong,</strong>
-                                <small class="">Architect</small>
-                            </div>
-                        </div>
-                    </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                    <?php wp_reset_postdata(); ?>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -183,66 +130,32 @@ get_header();
             cats and dogs of all breeds and have worked in the field for 2+ years.
         </p>
         <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <img src="https://randomuser.me/api/portraits/men/22.jpg" class="rounded-circle mb-3" alt="" />
-                        <h3 class="card-title mb-3">John Smith</h3>
-                        <p class="card-text">
-                            John is primarily focused on daycare for dogs and is a
-                            seasoned dog entertainer and coach.
-                        </p>
-                        <a href="#"><i class="bi bi-twitter mx-1"></i></a>
-                        <a href="#"><i class="bi bi-facebook mx-1"></i></a>
-                        <a href="#"><i class="bi bi-instagram mx-1"></i></a>
+            <?php
+            $args = array(
+                'post_type' => 'entertainer',
+                'posts_per_page' => 4,
+                'facetwp' => true,
+            );
+            $query = new WP_Query($args);
+            ?>
+            <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <img class="rounded-circle mb-3" src="<?php the_post_thumbnail_url(); ?>">
+                                <h3 class="card-title mb-3"><?= get_the_title(); ?></h3>
+                                <p class="card-text">
+                                    <?= the_content(); ?>
+                                </p>
+                                <a href="#"><i class="bi bi-twitter mx-1"></i></a>
+                                <a href="#"><i class="bi bi-facebook mx-1"></i></a>
+                                <a href="#"><i class="bi bi-instagram mx-1"></i></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <img src="https://randomuser.me/api/portraits/women/30.jpg" class="rounded-circle mb-3" alt="" />
-                        <h3 class="card-title mb-3">Helen Doe</h3>
-                        <p class="card-text">
-                            Helen has a vet degree and can respond to all unusual
-                            pet needs that can arise while in our care.
-                        </p>
-                        <a href="#"><i class="bi bi-twitter mx-1"></i></a>
-                        <a href="#"><i class="bi bi-facebook mx-1"></i></a>
-                        <a href="#"><i class="bi bi-instagram mx-1"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <img src="https://randomuser.me/api/portraits/men/20.jpg" class="rounded-circle mb-3" alt="" />
-                        <h3 class="card-title mb-3">David Black</h3>
-                        <p class="card-text">
-                            David brings extensive experience from police force and can
-                            make friends even with the naughtiest of pets.
-                        </p>
-                        <a href="#"><i class="bi bi-twitter mx-1"></i></a>
-                        <a href="#"><i class="bi bi-facebook mx-1"></i></a>
-                        <a href="#"><i class="bi bi-instagram mx-1"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <img src="https://randomuser.me/api/portraits/women/40.jpg" class="rounded-circle mb-3" alt="" />
-                        <h3 class="card-title mb-3">Sarah White</h3>
-                        <p class="card-text">
-                            Sarah is an avid cat lover and knows all the play techniques
-                            to keep your fur balls occupied.
-                        </p>
-                        <a href="#"><i class="bi bi-twitter mx-1"></i></a>
-                        <a href="#"><i class="bi bi-facebook mx-1"></i></a>
-                        <a href="#"><i class="bi bi-instagram mx-1"></i></a>
-                    </div>
-                </div>
-            </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
         </div>
     </div>
 </section>

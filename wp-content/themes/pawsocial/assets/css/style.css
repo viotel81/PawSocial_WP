@@ -40,11 +40,6 @@ body::before{
     color: #fef6e4 !important;
 }
 
-.showcase h1{
-    margin-top: 3rem;
-    padding-top: 3rem;
-}
-
 .showcase p {
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -163,7 +158,7 @@ body::before{
 .entertainers .card-title,
 .entertainers h2,
 .testimonials h2,
-.testimonials .card-title,
+.testimonials h4,
 #call-us-in h2,
 #bring-them-in h2,
 #pampering h2,
@@ -198,8 +193,8 @@ body::before{
 
  .author img{
     overflow: hidden;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 70px;
  }
 
 .carousel-control-prev{
@@ -239,9 +234,6 @@ footer{
     .carousel-item .card{
         min-height: 300px;
     }
-    .showcase h1{
-        margin-top: 0.5rem;
-    }
 }
 
 @media (min-width: 992px) {
@@ -250,10 +242,6 @@ footer{
     }
     .carousel-item .card{
         min-height: 430px;
-    }
-    .showcase h1{
-        padding-top: 0;
-        margin-top: 0;
     }
 }
 
