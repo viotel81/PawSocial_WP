@@ -4,7 +4,7 @@
 get_header();
 ?>
 <section class="showcase text-center text-md-start">
-    <div class="container pb-sm-3 py-md-5">
+    <div class="container mt-5 mt-md-0 pb-sm-3 py-md-5">
         <div class="row g-5 align-items-center justify-content-between">
             <div class="col-md-7 mb-md-3">
                 <?php
