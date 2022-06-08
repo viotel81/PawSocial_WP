@@ -2,9 +2,22 @@
 
 function pawsocial_theme_support(){
     add_theme_support('title_tag');
+    add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails');
 }
 
 add_action('after_setup_theme', 'pawsocial_theme_support');
+
+function pawsocial_menus(){
+    $locations = array(
+        'primary' => "Desktop Primary Topbar Menu",
+        'footer'=> "Footer Menu"
+    );
+    register_nav_menus($locations);
+}
+
+add_action('init', 'pawsocial_menus');
+
 
 function pawsocial_register_styles(){
 

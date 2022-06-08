@@ -33,6 +33,14 @@ body::before{
     border: 2px solid #001858 !important;
 }
 
+.nav-item{
+    padding-left: 20px;
+}
+
+.nav-item a:link{
+    text-decoration: none;
+}
+
 .nav-item a:hover,
 .social i:hover{
     color: #fef6e4 !important;
