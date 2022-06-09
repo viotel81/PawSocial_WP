@@ -47,6 +47,11 @@ body::before{
     font-weight: 300;
 }
 
+.what-we-do p {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
 .entertainers i:hover {
     color: #8BD3DD !important;
 }
@@ -127,6 +132,10 @@ body::before{
 .modal-content p {
     padding-top: 15px;
     text-align: center;
+    margin-top: unset;
+    margin-bottom: unset;
+    font-size: unset;
+    font-weight: unset;
 }
 
 .newsletter-email{
