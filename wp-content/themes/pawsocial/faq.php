@@ -19,15 +19,13 @@ get_header();
       <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
           <div class="accordion-item">
             <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-one">
-                <?php get_the_title(); ?>
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?= get_the_excerpt(); ?>">
+                <?= get_the_title(); ?>
               </button>
             </h3>
-            <div id="question-one" class="accordion-collapse collapse" data-bs-parent="#questions">
+            <div id="<?= get_the_excerpt(); ?>" class="accordion-collapse collapse" data-bs-parent="#questions">
               <div class="accordion-body">
-                <?php
-                the_content();
-                ?>
+                <?php the_content(); ?>
               </div>
             </div>
           </div>

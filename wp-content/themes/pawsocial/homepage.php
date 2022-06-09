@@ -79,22 +79,26 @@ get_header();
         <h2 class="text-center pb-4">What Our Paw Owners Say</h2>
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <?php
-                    $args = array(
-                        'post_type' => 'post',
-                        'posts_per_page' => 1,
-                        'facetwp' => true,
-                    );
-                    $query = new WP_Query($args);
-                    ?>
-                    <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+                <?php
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 3,
+                    'facetwp' => true,
+                );
+                $query = new WP_Query($args);
+                ?>
+                <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+                        <div class="carousel-item <?php if (get_the_title() == 'post1') {
+                                                        echo 'active';
+                                                    } else {
+                                                        echo '';
+                                                    }  ?>">
                             <div class="card px-4">
                                 <div class="card-body text-center">
                                     <div class="h1">
                                         <i class="fa fa-paw fa-x"></i>
                                     </div>
-                                    <h4 class="card-title"><?php get_the_title(); ?></h4>
+                                    <h4 class="card-title"><?php echo get_the_title(); ?></h4>
                                     <p class="card-text"></p>
                                     <?php
                                     the_content();
@@ -105,10 +109,10 @@ get_header();
                                     </div>
                                 </div>
                             </div>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                    <?php wp_reset_postdata(); ?>
-                </div>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

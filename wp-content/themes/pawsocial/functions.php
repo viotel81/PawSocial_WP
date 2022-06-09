@@ -85,7 +85,7 @@ function my_custom_post_service() {
 add_action( 'init', 'my_custom_post_service' );
 
 function pawsocial_theme_support(){
-    add_theme_support('title_tag');
+    add_theme_support('title-tag');
     add_theme_support('custom-logo');
     add_theme_support('post-thumbnails');
 }
