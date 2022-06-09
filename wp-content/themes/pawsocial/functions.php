@@ -1,5 +1,33 @@
 <?php
 
+function my_custom_post_question() {
+  $labels = array(
+    'name'               => _x( 'FAQs', 'faqs' ),
+    'singular_name'      => _x( 'FAQ', 'faq' ),
+    'add_new'            => _x( 'Add New', 'faq' ),
+    'add_new_item'       => __( 'Add New FAQ' ),
+    'edit_item'          => __( 'Edit FAQ' ),
+    'new_item'           => __( 'New FAQ' ),
+    'all_items'          => __( 'All FAQs' ),
+    'view_item'          => __( 'View FAQ' ),
+    'search_items'       => __( 'Search FAQs' ),
+    'not_found'          => __( 'No faqs found' ),
+    'not_found_in_trash' => __( 'No faqs found in the Trash' ), 
+    'parent_item_colon'  => '’',
+    'menu_name'          => 'Questions'
+  );
+  $args = array(
+    'labels'        => $labels,
+    'description'   => 'Frequently Asked Questions and Answers',
+    'public'        => true,
+    'menu_position' => 6,
+    'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+    'has_archive'   => true,
+  );
+  register_post_type( 'faq', $args ); 
+}
+add_action( 'init', 'my_custom_post_question' );
+
 function my_custom_post_entertainer() {
     $labels = array(
       'name'               => _x( 'People', 'entertainers' ),
