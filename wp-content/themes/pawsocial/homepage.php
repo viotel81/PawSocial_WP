@@ -82,13 +82,13 @@ get_header();
                 <?php
                 $args = array(
                     'post_type' => 'post',
-                    'posts_per_page' => 3,
+                    'posts_per_page' => 4,
                     'facetwp' => true,
                 );
                 $query = new WP_Query($args);
                 ?>
                 <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
-                        <div class="carousel-item <?php if (get_the_title() == 'post1') {
+                        <div class="carousel-item <?php if (get_the_title() == 'Post2') {
                                                         echo 'active';
                                                     } else {
                                                         echo '';
@@ -98,7 +98,7 @@ get_header();
                                     <div class="h1">
                                         <i class="fa fa-paw fa-x"></i>
                                     </div>
-                                    <h4 class="card-title"><?php echo get_the_title(); ?></h4>
+                                    <h4 class="card-title"><?php get_the_title(); ?></h4>
                                     <p class="card-text"></p>
                                     <?php
                                     the_content();
@@ -151,9 +151,9 @@ get_header();
                                 <p class="card-text">
                                     <?= the_content(); ?>
                                 </p>
-                                <a href="#"><i class="bi bi-twitter mx-1"></i></a>
-                                <a href="#"><i class="bi bi-facebook mx-1"></i></a>
-                                <a href="#"><i class="bi bi-instagram mx-1"></i></a>
+                                <?php
+                                dynamic_sidebar('card-1');
+                                ?>
                             </div>
                         </div>
                     </div>

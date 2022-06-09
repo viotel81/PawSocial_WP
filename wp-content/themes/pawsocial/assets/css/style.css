@@ -61,17 +61,14 @@ body::before{
 
 .services,
 .entertainers,
-#call-us-in,
-#pampering ,
 .btn-lg:hover{
     background-color: #F3D2C1;
 }
 
 .testimonials,
-#bring-them-in,
-#pet-hotel,
 .faq,
 .contact-info,
+.error,
 .newsletter-btn:hover{
     background-color: #fef6e4;
 }
@@ -159,10 +156,7 @@ body::before{
 .entertainers h2,
 .testimonials h2,
 .testimonials h4,
-#call-us-in h2,
-#bring-them-in h2,
-#pampering h2,
-#pet-hotel h2,
+.what-we-do h2,
 .faq h2,
 .contact-info h2{
     font-family: 'Gloria Hallelujah', sans-serif; 
@@ -181,7 +175,7 @@ body::before{
     align-items: center;
     background-color: #F3D2C1;
     border-radius: 10px;
-    min-height: 460px;
+    min-height: 500px;
  }
 
  .carousel-item .card-body{
@@ -193,8 +187,8 @@ body::before{
 
  .author img{
     overflow: hidden;
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
  }
 
 .carousel-control-prev{
@@ -232,7 +226,7 @@ footer{
 
 @media (min-width: 768px) {
     .carousel-item .card{
-        min-height: 300px;
+        min-height: 385px;
     }
 }
 
@@ -241,7 +235,7 @@ footer{
         width: 50%;
     }
     .carousel-item .card{
-        min-height: 430px;
+        min-height: 465px;
     }
 }
 
