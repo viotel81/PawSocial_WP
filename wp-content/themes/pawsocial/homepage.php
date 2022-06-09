@@ -63,7 +63,7 @@ get_header();
                                 <p class="card-text">
                                     <?= the_content(); ?>
                                 </p>
-                                <a href="<?= get_the_permalink(); ?>" class="btn-lg">Read More</a>
+                                <a href="what-we-do" class="btn-lg">Read More</a>
                             </div>
                         </div>
                     </div>
