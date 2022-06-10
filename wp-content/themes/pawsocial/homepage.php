@@ -61,7 +61,7 @@ get_header();
                                 </div>
                                 <h3 class="card-title mb-3"><?= get_the_title(); ?></h3>
                                 <p class="card-text">
-                                    <?= the_content(); ?>
+                                    <?= the_excerpt(); ?>
                                 </p>
                                 <a href="what-we-do" class="btn-lg">Read More</a>
                             </div>

@@ -19,13 +19,13 @@ $query = new WP_Query($args);
       <section style="background-color: #F3D2C1;" class="what-we-do py-md-3 py-lg-5">
         <div class="container">
           <div class="row align-items-center justify-content-between">
-            <div class="col-md pt-5 pb-3 py-lg-0">
+            <div class="col-md pt-5 pt-md-0 py-lg-5">
               <img class="img-fluid" src="<?php the_post_thumbnail_url(); ?>">
             </div>
-            <div class="col-md py-lg-5">
-              <h2 class="text-center text-md-start"><?= get_the_title(); ?></h2>
-              <p class="lead text-center text-md-start">
-                <?= the_excerpt(); ?>
+            <div class="col-md pb-3 pb-md-0">
+              <h2 class="pt-3 pt-md-0 text-center text-md-start"><?= get_the_title(); ?></h2>
+              <p>
+                <?= the_content(); ?>
               </p>
             </div>
           </div>
@@ -39,11 +39,11 @@ $query = new WP_Query($args);
           <div class="row align-items-center justify-content-between">
             <div class="col-md py-lg-5">
               <h2 class="pt-3 pt-md-0 text-center text-md-start"><?= get_the_title(); ?></h2>
-              <p class="lead text-center text-md-start">
-                <?= the_excerpt(); ?>
+              <p>
+                <?= the_content(); ?>
               </p>
             </div>
-            <div class="col-md pb-3 pb-md-0">
+            <div class="col-md pb-5 pb-md-0">
               <img class="img-fluid" src="<?php the_post_thumbnail_url(); ?>">
             </div>
           </div>
